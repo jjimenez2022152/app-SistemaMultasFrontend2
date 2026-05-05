@@ -1,0 +1,104 @@
+﻿@model System.Data.DataSet
+
+@{
+    ViewBag.Title = "Usuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Mantenimiento de Usuarios</h2>
+
+<form method="post" action="@Url.Action("Usuario", "Usuario")">
+
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+
+            <label>Usuarios&nbsp;</label>
+
+            <input type="text"
+                   id="id_usuario"
+                   name="id_usuario"
+                   placeholder="Buscar por id de usuario"
+                   style="color:black" />
+
+            <button type="submit"
+                    style="color:black"
+                    class="btn btn-default">
+                Buscar
+            </button>
+
+            <button onclick="location.href = '@Url.Action("newUsuario", "Usuario")'; return false; " type="button" class="btn btn-success">&nbsp;Nuevo</button>
+
+        </div>
+
+        <div class="panel-body">
+
+            <table class="table table-responsive table-bordered" style="color:black">
+
+                <thead>
+                    <tr align="center">
+                        <td><b>Id Usuario</b></td>
+                        <td><b>Username</b></td>
+                        <td><b>Password</b></td>
+                        <td><b>Id Agente</b></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @if (Model.Tables.Count > 0)
+                    {
+                        if (Model.Tables[0].Rows.Count > 0)
+                        {
+                            for (int x = 0; x < Model.Tables[0].Rows.Count; x++)
+                            {
+                                <tr align="center">
+
+                                    <td class="active">
+                                        @Model.Tables[0].Rows[x]["id_usuario"].ToString()
+                                    </td>
+
+                                    <td class="active">
+                                        @Model.Tables[0].Rows[x]["username"].ToString()
+                                    </td>
+
+                                    <td class="active">
+                                        @Model.Tables[0].Rows[x]["password"].ToString()
+                                    </td>
+
+                                    <td class="active">
+                                        @Model.Tables[0].Rows[x]["id_agente"].ToString()
+                                    </td>
+
+                                    <td>
+                                        <button type="button"
+                                                onclick="location.href='@Url.Action("ActualizarUsuario", "Usuario", new {id_Usuario= Model.Tables[0].Rows[x]["id_Usuario"].ToString() }) '";
+                                                class="btn btn-warning">
+                                            Actualizar
+                                        </button>
+                                    </td>
+
+                                    <td>
+                                        <button type="button"
+                                                onclick="location.href='@Url.Action("eliminar", "Usuario", new {id_Usuario= Model.Tables[0].Rows[x]["id_Usuario"].ToString() }) '";
+                                                class="btn btn-danger">
+                                            Eliminar
+                                        </button>
+                                    </td>
+
+                                </tr>
+                            }
+                        }
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</form>

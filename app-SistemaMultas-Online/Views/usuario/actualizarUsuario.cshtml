@@ -1,0 +1,56 @@
+﻿@model System.Data.DataSet
+@{
+    ViewBag.Title = "actualizarUsuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "newUsuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Bienvenidos a la pagina de registro de Usuarios</h2>
+
+<form action="/usuario/actualizar" method="post">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <label>Actualizar Usuario</label>
+        </div>
+
+        <div class="panel-body">
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>ID Usuario</label>
+                    <input type="text" required class="form-control" id="id_usuario" name="id_usuario" value="@Model.Tables[0].Rows[0]["id_usuario"]" readonly />
+                </div>
+            </div>
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input value="@Model.Tables[0].Rows[0]["username"].ToString()"; type="text" required class="form-control" id="username" name="username" />
+                </div>
+            </div>
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>Password</label>
+                    <input value="@Model.Tables[0].Rows[0]["password"].ToString()"; type="password" required class="form-control" id="password" name="password" />
+                </div>
+            </div>
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>ID Agente</label>
+                    <input value="@Model.Tables[0].Rows[0]["id_agente"].ToString()"; type="text" required class="form-control" id="id_agente" name="id_agente" />
+                </div>
+            </div>
+
+            <div class="col" align="center" style="margin-top: 20px;">
+                <button type="submit" class="btn btn-primary" onclick="return validarActualizacion()">Actualizar</button>
+                <button type="button" class="btn btn-danger" onclick="location.href = '@Url.Action("Usuario", "Usuario")';">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</form>
+

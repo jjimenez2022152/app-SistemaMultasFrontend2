@@ -1,0 +1,123 @@
+﻿@model System.Data.DataSet
+
+@{
+    ViewBag.Title = "Infraccion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Mantenimiento de Infracciones</h2>
+
+<form method="post" action="@Url.Action("Infraccion", "Infraccion")">
+
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+
+            <label>Infracciones&nbsp;</label>
+
+            <input type="text"
+                   id="id_infraccion"
+                   name="id_infraccion"
+                   placeholder="Buscar por id de infraccion"
+                   style="color:black" />
+
+            <button type="submit"
+                    style="color:black"
+                    class="btn btn-default">
+                Buscar
+            </button>
+
+            <button onclick="location.href = '@Url.Action("newInfraccion", "Infraccion")'; return false;"
+                    type="button"
+                    class="btn btn-success">
+                &nbsp;Nuevo
+            </button>
+
+        </div>
+
+        <div class="panel-body">
+
+            <table class="table table-responsive table-bordered" style="color:black">
+
+                <thead>
+                    <tr align="center">
+                        <td><b>Id</b></td>
+                        <td><b>Fecha</b></td>
+                        <td><b>Lugar</b></td>
+                        <td><b>Vehículo</b></td>
+                        <td><b>Agente</b></td>
+                        <td><b>Sanción</b></td>
+                        <td><b>Estado</b></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @if (Model.Tables.Count > 0)
+                    {
+                        if (Model.Tables[0].Rows.Count > 0)
+                        {
+                            for (int x = 0; x < Model.Tables[0].Rows.Count; x++)
+                            {
+                                <tr align="center">
+
+                                    <td class="active">
+                                        @Model.Tables[0].Rows[x]["id_infraccion"].ToString()
+                                    </td>
+
+                                    <td class="active">
+                                        @Convert.ToDateTime(Model.Tables[0].Rows[x]["fecha"]).ToString("yyyy-MM-dd HH:mm")
+                                    </td>
+
+                                    <td class="active">
+                                        @Model.Tables[0].Rows[x]["lugar"].ToString()
+                                    </td>
+
+                                    <td class="active">
+                                        @Model.Tables[0].Rows[x]["id_vehiculo"].ToString()
+                                    </td>
+
+                                    <td class="active">
+                                        @Model.Tables[0].Rows[x]["id_agente"].ToString()
+                                    </td>
+
+                                    <td class="active">
+                                        @Model.Tables[0].Rows[x]["id_sancion"].ToString()
+                                    </td>
+
+                                    <td class="active">
+                                        @Model.Tables[0].Rows[x]["id_estado"].ToString()
+                                    </td>
+
+                                    <td>
+                                        <button type="button"
+                                                onclick="location.href='@Url.Action("ActualizarInfraccion", "Infraccion", new { id_infraccion = Model.Tables[0].Rows[x]["id_infraccion"].ToString() })'"
+                                                class="btn btn-warning">
+                                            Actualizar
+                                        </button>
+                                    </td>
+
+                                    <td>
+                                        <button type="button"
+                                                onclick="location.href='@Url.Action("eliminar", "Infraccion", new { id_infraccion = Model.Tables[0].Rows[x]["id_infraccion"].ToString() })'"
+                                                class="btn btn-danger">
+                                            Eliminar
+                                        </button>
+                                    </td>
+
+                                </tr>
+                            }
+                        }
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</form>

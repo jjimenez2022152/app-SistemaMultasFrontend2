@@ -1,0 +1,98 @@
+﻿@model System.Data.DataSet
+
+@{
+    ViewBag.Title = "Actualizar Infracción";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Actualizar Infracción</h2>
+
+<form action="@Url.Action("actualizar","Infraccion")" method="post">
+
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <label>Editar Infracción</label>
+        </div>
+
+        <div class="panel-body">
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>ID Infracción</label>
+                    <input type="text" required class="form-control"
+                           name="id_infraccion"
+                           value="@Model.Tables[0].Rows[0]["id_infraccion"]"
+                           readonly />
+                </div>
+            </div>
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>Fecha</label>
+                    <input type="datetime-local" required class="form-control"
+                           name="fecha"
+                           value="@Convert.ToDateTime(Model.Tables[0].Rows[0]["fecha"]).ToString("yyyy-MM-ddTHH:mm")" />
+                </div>
+            </div>
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>Lugar</label>
+                    <input type="text" required class="form-control"
+                           name="lugar"
+                           value="@Model.Tables[0].Rows[0]["lugar"]" />
+                </div>
+            </div>
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>ID Vehículo</label>
+                    <input type="text" required class="form-control"
+                           name="id_vehiculo"
+                           value="@Model.Tables[0].Rows[0]["id_vehiculo"]" />
+                </div>
+            </div>
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>ID Agente</label>
+                    <input type="text" required class="form-control"
+                           name="id_agente"
+                           value="@Model.Tables[0].Rows[0]["id_agente"]" />
+                </div>
+            </div>
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>ID Sanción</label>
+                    <input type="text" required class="form-control"
+                           name="id_sancion"
+                           value="@Model.Tables[0].Rows[0]["id_sancion"]" />
+                </div>
+            </div>
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>ID Estado</label>
+                    <input type="text" required class="form-control"
+                           name="id_estado"
+                           value="@Model.Tables[0].Rows[0]["id_estado"]" />
+                </div>
+            </div>
+
+            <div class="col" align="center" style="margin-top: 20px;">
+                <button type="submit" class="btn btn-warning">
+                    Actualizar
+                </button>
+
+                <button type="button" class="btn btn-danger"
+                        onclick="location.href='@Url.Action("Infraccion","Infraccion")'">
+                    Cancelar
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+</form>

@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "newInfraccion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Registro de Infracciones</h2>
+
+<form action="/infraccion/guardar" method="post">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <label>Nueva Infracción</label>
+        </div>
+
+        <div class="panel-body">
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>ID Infracción</label>
+                    <input type="text" required class="form-control" id="id_infraccion" name="id_infraccion" />
+                </div>
+            </div>
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>Fecha</label>
+                    <!-- 🔥 IMPORTANTE -->
+                    <input type="datetime-local" required class="form-control" id="fecha" name="fecha" />
+                </div>
+            </div>
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>Lugar</label>
+                    <input type="text" required class="form-control" id="lugar" name="lugar" />
+                </div>
+            </div>
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>ID Vehículo</label>
+                    <input type="text" required class="form-control" id="id_vehiculo" name="id_vehiculo" />
+                </div>
+            </div>
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>ID Agente</label>
+                    <input type="text" required class="form-control" id="id_agente" name="id_agente" />
+                </div>
+            </div>
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>ID Sanción</label>
+                    <input type="text" required class="form-control" id="id_sancion" name="id_sancion" />
+                </div>
+            </div>
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>ID Estado</label>
+                    <input type="text" required class="form-control" id="id_estado" name="id_estado" />
+                </div>
+            </div>
+
+            <div class="col" align="center" style="margin-top: 20px;">
+                <button type="submit" class="btn btn-primary" onclick="return validarGuardado();">Guardar</button>
+
+                <button type="button"
+                        class="btn btn-danger"
+                        onclick="location.href = '@Url.Action("Infraccion", "Infraccion")';">
+                    Cancelar
+                </button>
+            </div>
+
+        </div>
+    </div>
+</form>

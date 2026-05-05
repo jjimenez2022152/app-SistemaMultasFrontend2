@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "newPago";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Bienvenidos a la pagina de registro de Pagos</h2>
+
+<form action="/Pago/guardar" method="post">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <label>Nuevo Pago</label>
+        </div>
+
+        <div class="panel-body">
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>ID Pago</label>
+                    <input type="text" required class="form-control" id="id_pago" name="id_pago" />
+                </div>
+            </div>
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>Fecha Pago</label>
+                    <input type="datetime-local" required class="form-control" id="fecha_pago" name="fecha_pago" />
+                </div>
+            </div>
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>Monto</label>
+                    <input type="text" required class="form-control" id="monto" name="monto" />
+                </div>
+            </div>
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>ID Infracción</label>
+                    <input type="text" required class="form-control" id="id_infraccion" name="id_infraccion" />
+                </div>
+            </div>
+
+            <div class="col" align="center" style="margin-top: 20px;">
+                <button type="submit" class="btn btn-primary" onclick="return validarGuardado();">
+                    Guardar
+                </button>
+
+                <button type="button"
+                        class="btn btn-danger"
+                        onclick="location.href = '@Url.Action("Pago", "Pago")';">
+                    Cancelar
+                </button>
+            </div>
+
+        </div>
+    </div>
+</form>
+

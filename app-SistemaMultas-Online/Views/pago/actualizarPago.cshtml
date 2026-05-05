@@ -1,0 +1,81 @@
+﻿@model System.Data.DataSet
+
+@{
+    ViewBag.Title = "Actualizar Pago";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Actualizar Pago</h2>
+
+<form action="@Url.Action("actualizar","Pago")" method="post" autocomplete="off">
+
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <label>Editar Pago</label>
+        </div>
+
+        <div class="panel-body">
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>ID Pago</label>
+                    <input type="text" required class="form-control"
+                           name="id_pago"
+                           value="@Model.Tables[0].Rows[0]["id_pago"]"
+                           readonly />
+                </div>
+            </div>
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>Fecha Pago</label>
+                    <input type="datetime-local" required class="form-control"
+                           id="fecha_pago"
+                           name="fecha_pago"
+                           value="@Convert.ToDateTime(Model.Tables[0].Rows[0]["fecha_pago"]).ToString("yyyy-MM-ddTHH:mm")" />
+                </div>
+            </div>
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>Monto</label>
+                    <input type="text" required class="form-control"
+                           name="monto"
+                           value="@Model.Tables[0].Rows[0]["monto"]" />
+                </div>
+            </div>
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>ID Infracción</label>
+                    <input type="text" required class="form-control"
+                           name="id_infraccion"
+                           value="@Model.Tables[0].Rows[0]["id_infraccion"]" />
+                </div>
+            </div>
+
+            <div class="col" align="center" style="margin-top: 20px;">
+                <button type="submit" class="btn btn-warning" onclick="return validarActualizacion()">
+                    Actualizar
+                </button>
+
+                <button type="button" class="btn btn-danger"
+                        onclick="location.href='@Url.Action("Pago","Pago")'">
+                    Cancelar
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+</form>
+
+<!-- 🔥 EVITA BUG DE datetime-local -->
+<script>
+    $(document).ready(function () {
+        if (!$("#fecha_pago").val()) {
+            $("#fecha_pago").val("");
+        }
+    });
+</script>
