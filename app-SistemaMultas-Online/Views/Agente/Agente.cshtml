@@ -1,0 +1,89 @@
+﻿﻿@model System.Data.DataSet
+
+@{
+    ViewBag.Title = "Agentes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Mantenimiento de Agentes</h2>
+
+<form method="post" action="@Url.Action("Agente","Agente")">
+
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <label>Agente&nbsp;</label>
+
+            <input type="text"
+                   id="id_agente"
+                   name="id_agente"
+                   placeholder="Buscar por id de Agente"
+                   style="color:black" />
+
+            <button type="submit" class="btn btn-default" style="color:black">
+                Buscar
+            </button>
+
+            <button type="button"
+                    class="btn btn-success"
+                    onclick="location.href='@Url.Action("newAgente", "Agente")'">
+                Nuevo
+            </button>
+        </div>
+
+        <div class="panel-body">
+
+            <table class="table table-responsive table-bordered" style="color:black">
+
+                <thead>
+                    <tr align="center">
+                        <td><b>Id Agente</b></td>
+                        <td><b>Nombre</b></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @if (Model != null && Model.Tables.Count > 0 && Model.Tables[0].Rows.Count > 0)
+                    {
+                        for (int x = 0; x < Model.Tables[0].Rows.Count; x++)
+                        {
+                            <tr align="center">
+
+                                <td class="active">
+                                    @Model.Tables[0].Rows[x]["id_agente"].ToString()
+                                </td>
+
+                                <td class="active">
+                                    @Model.Tables[0].Rows[x]["nombre"].ToString()
+                                </td>
+
+                                <td>
+                                    <button type="button"
+                                            class="btn btn-warning"
+                                            onclick="location.href='@Url.Action("ActualizarAgente", "Agente", new { id_agente = Model.Tables[0].Rows[x]["id_agente"].ToString() })'">
+                                        Actualizar
+                                    </button>
+                                </td>
+
+                                <td>
+                                    <button type="button"
+                                            class="btn btn-danger"
+                                            onclick="location.href='@Url.Action("eliminar", "Agente", new { id_agente = Model.Tables[0].Rows[x]["id_agente"].ToString() })'">
+                                        Eliminar
+                                    </button>
+                                </td>
+
+                            </tr>
+                        }
+                    }
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</form>

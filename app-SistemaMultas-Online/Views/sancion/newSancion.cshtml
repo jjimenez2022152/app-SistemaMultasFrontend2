@@ -1,0 +1,72 @@
+﻿﻿@{
+    ViewBag.Title = "newSancion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Registro de Sanción</h2>
+
+<form action="/sancion/guardar" method="post">
+
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <label>Nueva Sanción</label>
+        </div>
+
+        <div class="panel-body">
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>ID Sanción</label>
+                    <input type="text"
+                           required
+                           class="form-control"
+                           id="id_sancion"
+                           name="id_sancion" />
+                </div>
+            </div>
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>Descripción</label>
+                    <input type="text"
+                           required
+                           class="form-control"
+                           id="descripcion"
+                           name="descripcion" />
+                </div>
+            </div>
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>Monto</label>
+                    <input type="text"
+                           required
+                           class="form-control"
+                           id="monto"
+                           name="monto" />
+                </div>
+            </div>
+
+            <div class="col" align="center" style="margin-top: 20px;">
+
+                <button type="submit"
+                        class="btn btn-primary"
+                        onclick="return validarGuardadoSancion();">
+                    Guardar
+                </button>
+
+                <button type="button"
+                        class="btn btn-danger"
+                        onclick="location.href='@Url.Action("Sancion","Sancion")'">
+                    Cancelar
+                </button>
+
+            </div>
+
+        </div>
+    </div>
+
+</form>
+
+<script src="~/Scripts/validaciones.js"></script>

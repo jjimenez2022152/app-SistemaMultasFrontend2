@@ -1,0 +1,89 @@
+﻿@model System.Data.DataSet
+
+@{
+    ViewBag.Title = "actualizarVehiculo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Bienvenidos a la pagina de actualizacion de Vehiculos</h2>
+
+<form action="/Vehiculo/actualizar" method="post">
+
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <label>Actualizar Vehiculo</label>
+        </div>
+
+        <div class="panel-body">
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>ID Vehiculo</label>
+
+                    <input type="text"
+                           required
+                           class="form-control"
+                           id="id_vehiculo"
+                           name="id_vehiculo"
+                           value="@Model.Tables[0].Rows[0]["id_vehiculo"]"
+                           readonly />
+                </div>
+            </div>
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>Placa</label>
+
+                    <input value="@Model.Tables[0].Rows[0]["placa"].ToString()"
+                           type="text"
+                           required
+                           class="form-control"
+                           id="placa"
+                           name="placa" />
+                </div>
+            </div>
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>Marca</label>
+
+                    <input value="@Model.Tables[0].Rows[0]["marca"].ToString()"
+                           type="text"
+                           required
+                           class="form-control"
+                           id="marca"
+                           name="marca" />
+                </div>
+            </div>
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>ID Conductor</label>
+
+                    <input value="@Model.Tables[0].Rows[0]["id_conductor"].ToString()"
+                           type="text"
+                           required
+                           class="form-control"
+                           id="id_conductor"
+                           name="id_conductor" />
+                </div>
+            </div>
+
+            <div class="col" align="center" style="margin-top:20px;">
+                <button type="submit"
+                        class="btn btn-primary"
+                        onclick="return validarActualizacion();">
+                    Actualizar
+                </button>
+
+                <button type="button"
+                        class="btn btn-danger"
+                        onclick="location.href='@Url.Action("Vehiculo","Vehiculo")';">
+                    Cancelar
+                </button>
+            </div>
+
+        </div>
+    </div>
+</form>

@@ -1,0 +1,68 @@
+﻿﻿@model System.Data.DataSet
+
+@{
+    ViewBag.Title = "Actualizar Sanción";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Actualizar Sanción</h2>
+
+<form action="@Url.Action("actualizar","Sancion")" method="post">
+
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <label>Editar Sanción</label>
+        </div>
+
+        <div class="panel-body">
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>ID Sanción</label>
+                    <input type="text" required class="form-control"
+                           name="id_sancion"
+                           value="@Model.Tables[0].Rows[0]["id_sancion"]"
+                           readonly />
+                </div>
+            </div>
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>Descripción</label>
+                    <input type="text" required class="form-control"
+                           name="descripcion"
+                           value="@Model.Tables[0].Rows[0]["descripcion"]" />
+                </div>
+            </div>
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>Monto</label>
+                    <input type="text" required class="form-control"
+                           name="monto"
+                           value="@Model.Tables[0].Rows[0]["monto"]" />
+                </div>
+            </div>
+
+            <div class="col" align="center" style="margin-top: 20px;">
+                <button type="submit"
+                        class="btn btn-warning"
+                        onclick="return validarActualizacionSancion();">
+                    Actualizar
+                </button>
+
+                <button type="button"
+                        class="btn btn-danger"
+                        onclick="location.href='@Url.Action("Sancion","Sancion")'">
+                    Cancelar
+                </button>
+
+            </div>
+
+        </div>
+    </div>
+
+</form>
+
+<script src="~/Scripts/validaciones.js"></script>

@@ -120,15 +120,28 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AgenteController.cs" />
+    <Compile Include="Controllers\ConductoresController.cs" />
+    <Compile Include="Controllers\EstadoInfraccionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\infraccionController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\pagoController.cs" />
+    <Compile Include="Controllers\SancionController.cs" />
     <Compile Include="Controllers\usuarioController.cs" />
+    <Compile Include="Controllers\VehiculoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Content Include="js\jsConductores.js" />
+    <Compile Include="Models\csConductores.cs" />
+    <Compile Include="Models\csEstructuraAgente.cs" />
+    <Compile Include="Models\csEstructuraEstadoInfraccion.cs" />
+    <Compile Include="Models\csEstructuraLogin.cs" />
     <Compile Include="Models\csEstructuraPago.cs" />
+    <Compile Include="Models\csEstructuraSancion.cs" />
     <Compile Include="Models\csEstructuraUsuario.cs" />
+    <Compile Include="Models\csEstructuraVehiculo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -151,9 +164,13 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="js\jsAgente.js" />
+    <Content Include="js\jsEstadoInfraccion.js" />
     <Content Include="js\jsInfraccion.js" />
     <Content Include="js\jsPago.js" />
+    <Content Include="js\jsSancion.js" />
     <Content Include="js\jsUsuario.js" />
+    <Content Include="js\jsVehiculo.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -195,6 +212,22 @@
     <Content Include="Views\pago\Pago.cshtml" />
     <Content Include="Views\pago\newPago.cshtml" />
     <Content Include="Views\pago\actualizarPago.cshtml" />
+    <Content Include="Views\EstadoInfraccion\EstadoInfraccion.cshtml" />
+    <Content Include="Views\EstadoInfraccion\NewEstadoInfraccion.cshtml" />
+    <Content Include="Views\EstadoInfraccion\actualizarEstadoInfraccion.cshtml" />
+    <Content Include="Views\vehiculo\NewVehiculo.cshtml" />
+    <Content Include="Views\vehiculo\Vehiculo.cshtml" />
+    <Content Include="Views\vehiculo\ActualizarVehiculo.cshtml" />
+    <Content Include="Views\Agente\Agente.cshtml" />
+    <Content Include="Views\Agente\newAgente.cshtml" />
+    <Content Include="Views\Agente\actualizarAgente.cshtml" />
+    <Content Include="Views\sancion\Sancion.cshtml" />
+    <Content Include="Views\sancion\actualizarSancion.cshtml" />
+    <Content Include="Views\sancion\newSancion.cshtml" />
+    <Content Include="Views\Conductores\Conductores.cshtml" />
+    <Content Include="Views\Conductores\newConductor.cshtml" />
+    <Content Include="Views\Conductores\actualizarConductor.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

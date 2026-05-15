@@ -1,0 +1,44 @@
+﻿﻿@model System.Data.DataSet
+@{
+    ViewBag.Title = "actualizarConductor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Bienvenidos a la pagina de Actalizacion de Conductores</h2>
+
+<form action="/Conductores/actualizar" method="post">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <label>Actualizar Conductor</label>
+        </div>
+
+        <div class="panel-body">
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>id_Conductor</label>
+                    <input type="text" required class="form-control" id="id_conductor" name="id_conductor" value="@Model.Tables[0].Rows[0]["id_Conductor"]" readonly />
+                </div>
+            </div>
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>nombre</label>
+                    <input value="@Model.Tables[0].Rows[0]["nombre"].ToString()" ; type="text" required class="form-control" id="nombre" name="nombre" />
+                </div>
+            </div>
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>dpi</label>
+                    <input value="@Model.Tables[0].Rows[0]["dpi"].ToString()" ; type="text" required class="form-control" id="dpi" name="dpi" />
+                </div>
+            </div>
+
+            <div class="col" align="center" style="margin-top: 20px;">
+                <button type="submit" class="btn btn-primary" onclick="return validarActualizacion()">Actualizar</button>
+                <button type="button" class="btn btn-danger" onclick="location.href = '@Url.Action("Conductores", "Conductores")';">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</form>

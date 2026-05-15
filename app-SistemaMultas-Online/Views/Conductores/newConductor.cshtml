@@ -1,0 +1,44 @@
+﻿﻿
+@{
+    ViewBag.Title = "newConductor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Bienvenidos a la pagina de registro de Conductores</h2>
+
+<form action="/Conductores/guardar" method="post">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <label>Nuevo Conductor</label>
+            <button onclick="location.href = '@Url.Action("Conductores","Conductores") '; return false;" class="btn btn-success">&raquo;Regresar</button>
+        </div>
+
+        <div class="panel-body">
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>id_Conductor</label>
+                    <input type="text" required class="form-control" id="id_Conductor" name="id_Conductor" />
+                </div>
+            </div>
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>nombre</label>
+                    <input type="text" required class="form-control" id="nombre" name="nombre" />
+                </div>
+            </div>
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>dpi</label>
+                    <input type="password" required class="form-control" id="dpi" name="dpi" />
+                </div>
+            </div>
+
+            <div class="col" align="center" style="margin-top: 20px;">
+                <button type="submit" class="btn btn-primary" onclick="return validarGuardado();">Guardar</button>
+                <button type="button" class="btn btn-danger" onclick="location.href = '@Url.Action("Conductores", "Conductores")';">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</form>

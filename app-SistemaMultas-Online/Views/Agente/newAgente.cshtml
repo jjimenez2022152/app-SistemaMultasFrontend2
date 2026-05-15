@@ -1,0 +1,53 @@
+﻿﻿@{
+    ViewBag.Title = "newAgente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Registro de Agentes</h2>
+
+<form action="/agente/guardar" method="post">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <label>Nuevo Agente</label>
+        </div>
+
+        <div class="panel-body">
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>ID Agente</label>
+                    <input type="text" required class="form-control" id="id_agente" name="id_agente" />
+                </div>
+            </div>
+
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>Nombre</label>
+                    <input type="text" required class="form-control" id="nombre" name="nombre" />
+                </div>
+            </div>
+
+
+            <div class="col" align="center" style="margin-top: 20px;">
+                <button type="submit"
+                        class="btn btn-primary"
+                        onclick="return validarGuardadoAgente();">
+                    Guardar
+                </button>
+
+                <button type="button"
+                        class="btn btn-danger"
+                        onclick="location.href = '@Url.Action("Agente", "Agente")';">
+                    Cancelar
+                </button>
+
+            </div>
+
+        </div>
+    </div>
+
+</form>
+
+<script src="~/Scripts/validaciones.js"></script>

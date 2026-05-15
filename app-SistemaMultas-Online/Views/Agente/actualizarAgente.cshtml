@@ -1,0 +1,69 @@
+﻿﻿@model System.Data.DataSet
+
+@{
+    ViewBag.Title = "Actualizar Agente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Actualizar Agente</h2>
+
+<form action="@Url.Action("actualizar","Agente")" method="post">
+
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <label>Editar Agente</label>
+        </div>
+
+        <div class="panel-body">
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>ID Agente</label>
+                    <input type="text" required class="form-control"
+                           name="id_agente"
+                           value="@Model.Tables[0].Rows[0]["id_agente"]"
+                           readonly />
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="col" align="center">
+                <div class="form-group">
+                    <label>Nombre</label>
+                    <input type="text" required class="form-control"
+                           name="nombre"
+                           value="@Model.Tables[0].Rows[0]["nombre"]" />
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="col" align="center" style="margin-top: 20px;">
+                <button type="submit"
+                        class="btn btn-warning"
+                        onclick="return validarActualizacionAgente();">
+                    Actualizar
+                </button>
+
+                <button type="button"
+                        class="btn btn-danger"
+                        onclick="location.href='@Url.Action("Agente","Agente")'">
+                    Cancelar
+                </button>
+
+            </div>
+
+        </div>
+    </div>
+
+</form>
+
+<script src="~/Scripts/validaciones.js"></script>

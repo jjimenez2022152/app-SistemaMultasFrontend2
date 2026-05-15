@@ -1,0 +1,66 @@
+﻿@model System.Data.DataSet
+
+@{
+    ViewBag.Title = "Actualizar Estado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Actualizar Estado de Infracción</h2>
+
+<form action="@Url.Action("actualizar","EstadoInfraccion")" method="post">
+
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <label>Editar Estado</label>
+        </div>
+
+        <div class="panel-body">
+
+            <div class="col" align="center">
+                <div class="form-group">
+
+                    <label>ID Estado</label>
+
+                    <input type="text"
+                           required
+                           class="form-control"
+                           name="id_estado"
+                           value="@Model.Tables[0].Rows[0]["id_estado"]"
+                           readonly />
+                </div>
+            </div>
+
+            <div class="col" align="center">
+                <div class="form-group">
+
+                    <label>Descripción</label>
+
+                    <input type="text"
+                           required
+                           class="form-control"
+                           name="descripcion"
+                           value="@Model.Tables[0].Rows[0]["descripcion"]" />
+                </div>
+            </div>
+
+            <div class="col" align="center" style="margin-top:20px;">
+
+                <button type="submit"
+                        class="btn btn-warning">
+                    Actualizar
+                </button>
+
+                <button type="button"
+                        class="btn btn-danger"
+                        onclick="location.href='@Url.Action("EstadoInfraccion","EstadoInfraccion")'">
+                    Cancelar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</form>

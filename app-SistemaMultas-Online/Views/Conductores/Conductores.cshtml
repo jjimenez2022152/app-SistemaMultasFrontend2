@@ -1,0 +1,56 @@
+﻿﻿@model System.Data.DataSet
+@{
+    ViewBag.Title = "Conductores";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Gestion de Conductores</h2>
+
+<form method="post" action="@Url.Action("Conductores","Conductores")">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <label>Conductores &raquo;</label>
+            <input type="text" id="id_conductor" name="id_conductor" placeholder="Buscar por id de Conductor" style="color:black" />
+            <button type="submit" style="color:black" class="btn btn-default">Buscar </button>
+            <button onclick="location.href = '@Url.Action("newConductor","Conductores") '; return false;" class="btn btn-success">&raquo;Nuevo</button>
+        </div>
+
+        <div class="panel-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <td><b>id_conductor</b></td>
+                        <td><b>nombre</b></td>
+                        <td><b>dpi</b></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+                    @if (Model.Tables.Count > 0)
+                    {
+                        if (Model.Tables[0].Rows.Count > 0)
+                        {
+                            for (int x = 0; x < Model.Tables[0].Rows.Count; x++)
+                            {
+
+
+                                <tr align="center">
+                                    <td class="active">@Model.Tables[0].Rows[x]["id_Conductor"].ToString() </td>
+                                    <td class="active">@Model.Tables[0].Rows[x]["nombre"].ToString()</td>
+                                    <td class="active">@Model.Tables[0].Rows[x]["dpi"].ToString()</td>
+                                    <td><button type="button" class="btn btn-warning" onclick="location.href = '@Url.Action("ActualizarConductor","Conductores", new { id_Conductor = Model.Tables[0].Rows[x]["id_Conductor"].ToString() })'; return false;">Actualizar</button></td>
+                                    <td> <button type="button" class="btn btn-danger" onclick="location.href = '@Url.Action("eliminar","Conductores", new { id_Conductor = Model.Tables[0].Rows[x]["id_Conductor"].ToString() })'; return false;">Eliminar</button>
+                                    <td>
+                                </tr>
+                            }
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,73 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Login</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div class="container" style="margin-top:100px; max-width:400px;">
+
+        <div class="panel panel-primary">
+
+            <div class="panel-heading">
+                <h3>Iniciar Sesión</h3>
+            </div>
+
+            <div class="panel-body">
+
+                <form action="/Login/validar" method="post">
+
+                    <div class="form-group">
+                        <label>Usuario</label>
+
+                        <input type="text"
+                               class="form-control"
+                               name="username"
+                               required />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Contraseña</label>
+
+                        <input type="password"
+                               class="form-control"
+                               name="password"
+                               required />
+                    </div>
+
+                    <br />
+
+                    <button type="submit"
+                            class="btn btn-primary btn-block">
+                        Ingresar
+                    </button>
+
+                    <br />
+
+                    @if (ViewBag.Error != null)
+                    {
+                        <div class="alert alert-danger">
+                            @ViewBag.Error
+                        </div>
+                    }
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
