@@ -14,6 +14,11 @@
             <input type="text" id="id_conductor" name="id_conductor" placeholder="Buscar por id de Conductor" style="color:black" />
             <button type="submit" style="color:black" class="btn btn-default">Buscar </button>
             <button onclick="location.href = '@Url.Action("newConductor","Conductores") '; return false;" class="btn btn-success">&raquo;Nuevo</button>
+            <button type="button"
+                    class="btn btn-danger"
+                    onclick="location.href='@Url.Action("ReporteConductores","Reporte")'">
+                PDF
+            </button>
         </div>
 
         <div class="panel-body">

@@ -29,6 +29,12 @@
                     onclick="location.href='@Url.Action("newAgente", "Agente")'">
                 Nuevo
             </button>
+
+            <button type="button"
+                    class="btn btn-danger"
+                    onclick="location.href='@Url.Action("ReporteAgentes","Reporte")'">
+                PDF
+            </button>
         </div>
 
         <div class="panel-body">
@@ -73,6 +79,7 @@
                                             onclick="location.href='@Url.Action("eliminar", "Agente", new { id_agente = Model.Tables[0].Rows[x]["id_agente"].ToString() })'">
                                         Eliminar
                                     </button>
+
                                 </td>
 
                             </tr>

@@ -3,31 +3,79 @@
 }
 
 <main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
+    <section class="row" aria-labelledby="tituloSistema">
+
+        <h1 id="tituloSistema">Sistema de Multas Online</h1>
+
+        <p class="lead">
+            Plataforma web desarrollada en ASP.NET MVC para la gestión de infracciones,
+            conductores, vehículos, sanciones, pagos y agentes de tránsito.
+        </p>
+
+        <p>
+            <a href="@Url.Action("Infraccion","Infraccion")"
+               class="btn btn-primary btn-md">
+                Ir a Infracciones &raquo;
+            </a>
+        </p>
+
     </section>
 
     <div class="row">
-        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-            <h2 id="gettingStartedTitle">Getting started</h2>
+
+        <section class="col-md-4" aria-labelledby="gestionInfracciones">
+
+            <h2 id="gestionInfracciones">Gestión de Infracciones</h2>
+
             <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
+                Permite registrar, actualizar y consultar infracciones de tránsito,
+                asociando vehículos, agentes, sanciones y estados.
             </p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+
+            <p>
+                <a class="btn btn-outline-dark"
+                   href="@Url.Action("Infraccion","Infraccion")">
+                    Ver Infracciones &raquo;
+                </a>
+            </p>
+
         </section>
-        <section class="col-md-4" aria-labelledby="librariesTitle">
-            <h2 id="librariesTitle">Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+
+        <section class="col-md-4" aria-labelledby="gestionPagos">
+
+            <h2 id="gestionPagos">Pagos y Sanciones</h2>
+
+            <p>
+                Administra los pagos realizados por las infracciones y lleva
+                el control de las sanciones registradas dentro del sistema.
+            </p>
+
+            <p>
+                <a class="btn btn-outline-dark"
+                   href="@Url.Action("Pago","Pago")">
+                    Ver Pagos &raquo;
+                </a>
+            </p>
+
         </section>
-        <section class="col-md-4" aria-labelledby="hostingTitle">
-            <h2 id="hostingTitle">Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+
+        <section class="col-md-4" aria-labelledby="reportesSistema">
+
+            <h2 id="reportesSistema">Reportes PDF</h2>
+
+            <p>
+                Genera reportes en PDF para entidades como agentes,
+                vehículos, conductores, pagos e infracciones.
+            </p>
+
+            <p>
+                <a class="btn btn-outline-dark"
+                   href="@Url.Action("ReporteAgentes","Reporte")">
+                    Generar Reportes &raquo;
+                </a>
+            </p>
+
         </section>
+
     </div>
 </main>
